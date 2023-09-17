@@ -84,8 +84,11 @@ hold on;
 
 % График последовательности точек
 if turn_points == 1
-    plot(X_sequence, F_sequence, 'ro');
-    hold on;
+    for idx=1:length(X_sequence)
+        plot(X_sequence(1:idx), F_sequence(1:idx), 'ro');
+        pause(0.5);
+        hold on;
+    end
 end
 
 % График найденной точки минимума

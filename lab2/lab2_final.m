@@ -25,7 +25,7 @@ function lab2_final()
         y = sh_func(x) + sin_func(x);
     end
 
-    global N; % Declare N as a global variable
+    global N;
     N = 0;
     print_intermediate = 1; % Вкл отображение отрезков
     print_iter = 1; % Вкл последовательности отрезков
@@ -33,7 +33,7 @@ function lab2_final()
     
     a = 0;
     b = 1;
-    eps = power(10, -1);
+    eps = power(10, -2);
 
     % τ=(√5-1)/2
     tau = (sqrt(5)-1)/2;
@@ -85,7 +85,11 @@ function lab2_final()
             plot(x_range, y_range, 'b');
             hold on;
             if print_intermediate
-                plot(x_vals, f_vals, 'ro');
+                for idx=1:length(x_vals)
+                    plot(x_vals(1:idx), f_vals(1:idx), 'ro');
+                    pause(0.5);
+                    hold on;
+                end
             end
             plot(x_, f_, 'go'); % Добавляем точку минимума
             xlabel('x');
